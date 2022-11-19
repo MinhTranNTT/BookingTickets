@@ -10,7 +10,4 @@ public class BookingBackEndApplication {
 		SpringApplication.run(BookingBackEndApplication.class, args);
 	}
 	
-//	public static void main(String[] args) {
-//		System.out.println("HAA");
-//	}
 }

@@ -8,7 +8,11 @@
     </encoder>
   </appender>
 
-  <logger name="booking.mappers.BookMapper">
+<!--   <logger name="booking.mappers.StudentMapper">
+    <level value="debug"/>
+  </logger> -->
+  
+  <logger name="booking.mappers">
     <level value="debug"/>
   </logger>
   
