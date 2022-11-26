@@ -2,15 +2,15 @@
 <!DOCTYPE configuration>
 <configuration>
 
-  <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+ <!--  <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
       <pattern>%5level [%thread] - %msg%n</pattern>
     </encoder>
   </appender>
 
-<!--   <logger name="booking.mappers.StudentMapper">
+  <logger name="booking.mappers.StudentMapper">
     <level value="debug"/>
-  </logger> -->
+  </logger>
   
   <logger name="booking.mappers">
     <level value="debug"/>
@@ -18,6 +18,6 @@
   
   <root level="error">
     <appender-ref ref="stdout"/>
-  </root>
+  </root> -->
 
 </configuration>
