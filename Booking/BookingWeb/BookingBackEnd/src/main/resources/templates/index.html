@@ -137,7 +137,8 @@
  <!-- //////////////////////////////////////////////////////////////////////////// --> 
 <!-- START CONTAINER -->
 <div class="container-widget">
-
+	
+	<div th:replace="fragments/modal-test.html"></div>
 </div>
 <!-- END CONTAINER -->
  <!-- //////////////////////////////////////////////////////////////////////////// --> 
@@ -308,6 +309,11 @@
 <!-- END SIDEPANEL -->
 <!-- //////////////////////////////////////////////////////////////////////////// --> 
 
+<script type="text/javascript">
+	contextPath = "[[@{/}]]";
+	var csrfHeaderName = "[[${_csrf.headerName}]]";
+	var csrfValue = "[[${_csrf.token}]]";	
+</script>
 
 <!-- ================================================
 jQuery Library
@@ -421,6 +427,11 @@ Full Calendar
 Bootstrap Date Range Picker
 ================================================ -->
 <script th:src="@{/js/date-range-picker/daterangepicker.js}"></script>
+
+<!-- ================================================
+Custom JS INDEX
+================================================ -->
+<script th:src="@{/js-custom/index-custom.js}"></script>
 
 <!-- ================================================
 Below codes are only for index widgets
