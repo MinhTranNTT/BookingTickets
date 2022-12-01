@@ -10,7 +10,7 @@
 
   <!-- ========== Css Files ========== -->
   <link th:href="@{/css/root.css}" rel="stylesheet" type="text/css">
-
+  <link th:href="@{/css-custom/style-custom.css}" rel="stylesheet" type="text/css">
 
   </head>
   <body>
@@ -308,11 +308,11 @@
 </div>
 <!-- END SIDEPANEL -->
 <!-- //////////////////////////////////////////////////////////////////////////// --> 
-
+<script th:src="@{/js-custom/forms/validate-form.js}"></script>
 <script type="text/javascript">
 	contextPath = "[[@{/}]]";
 	var csrfHeaderName = "[[${_csrf.headerName}]]";
-	var csrfValue = "[[${_csrf.token}]]";	
+	var csrfValue = "[[${_csrf.token}]]";
 </script>
 
 <!-- ================================================
