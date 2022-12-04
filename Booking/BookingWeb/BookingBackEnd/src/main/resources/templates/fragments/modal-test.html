@@ -1,5 +1,5 @@
 <!-- Link -->
-<button href="#" class="btn btn-square btn-success form-group" data-toggle="modal" data-target="#modalCreateUser">Model 3</button>
+<button href="#" id="btn-create-user" class="btn btn-square btn-success form-group" data-toggle="modal" data-target="#modalCreateUser">Model 3</button>
 
 <!-- Modal -->
 <div class="modal fade" id="modalCreateUser" tabindex="-1" role="dialog" aria-hidden="true">
@@ -25,7 +25,7 @@
                   <label class="col-sm-2 control-label form-label">First name</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" id="firstNameUser">
-                    <span class="form-message">HELLO</span>
+                    <span class="form-message"></span>
                   </div>
                 </div>
                 
@@ -33,6 +33,7 @@
                   <label class="col-sm-2 control-label form-label">Last name</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" id="lastNameUser">
+                    <span class="form-message"></span>
                   </div>
                 </div>
 
@@ -40,30 +41,32 @@
                   <label class="col-sm-2 control-label form-label">Password</label>
                   <div class="col-sm-10">
                     <input type="password" class="form-control" id="passwordUser">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-2 control-label form-label">Subject</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="input122">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-2 control-label form-label">Message</label>
-                  <div class="col-sm-10">
-                    <textarea class="form-control" rows="3"></textarea>
+                    <span class="form-message"></span>
                   </div>
                 </div>
                 
                 <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10 checkbox checkbox-primary padding-l-35">
-                    <input id="checkbox103" type="checkbox" checked>
-                    <label for="checkbox103">Remember me</label>
+                  <label class="col-sm-2 control-label form-label">Re-Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="passwordUserConfirm">
+                    <span class="form-message"></span>
                   </div>
                 </div>
-                
+
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">Roles</label>
+                  <div class="col-sm-10" id="roles">
+                    <div id="chk-role"></div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+	                <label class="col-sm-2 control-label form-label" for="customFile">Choose File</label>
+	                <div class="col-sm-10">
+	                    <input type="file" class="form-control" id="customFile" />
+	                </div>
+                </div>
+                  
               </form>
 		    </div>
       </div>

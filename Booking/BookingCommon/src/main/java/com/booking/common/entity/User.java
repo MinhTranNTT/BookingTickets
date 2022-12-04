@@ -1,5 +1,10 @@
 package com.booking.common.entity;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,8 +19,8 @@ public class User {
 	private String lastName;
 	private String photos;
 	private boolean enabled;
-	//private Set<Role> roles = new HashSet<>();
 	
+	private Set<Role> roles = new HashSet<>();
 	
 	public User() {
 	}
