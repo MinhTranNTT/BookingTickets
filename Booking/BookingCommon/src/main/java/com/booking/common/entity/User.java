@@ -20,7 +20,7 @@ public class User {
 	private String photos;
 	private boolean enabled;
 	
-	private Set<Role> roles = new HashSet<>();
+	private Set<Integer> roles = new HashSet<>();
 	
 	public User() {
 	}

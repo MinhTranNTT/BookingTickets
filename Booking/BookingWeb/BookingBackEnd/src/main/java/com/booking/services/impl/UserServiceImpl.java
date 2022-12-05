@@ -1,5 +1,7 @@
 package com.booking.services.impl;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +16,12 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public int createNewUser(User user, String roles) {
-//		String[] arrRoles;
-//		if (!roles.isEmpty() ) {
-//			arrRoles = roles.split(",");
-//		}
-		
 		return userDao.createNewUser(user);
+	}
+
+	@Override
+	public int createRolesNewUser(Map<String, Object> map) {
+		return userDao.createRolesNewUser(map);
 	}
 
 }

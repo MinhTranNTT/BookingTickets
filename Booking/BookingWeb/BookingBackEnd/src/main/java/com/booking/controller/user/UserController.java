@@ -1,7 +1,12 @@
 package com.booking.controller.user;
 
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import com.booking.FileUploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,16 +45,24 @@ public class UserController {
 	@PostMapping(path = "/create_user")
 	@ResponseBody
 	public String createUser(@ModelAttribute User user, @RequestParam("strRoles") String roles, @RequestParam("image") MultipartFile multipartFile) {
-
+		Map<String, Object> map = new HashMap<String, Object>();
 		if (!multipartFile.isEmpty()) {
 			String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
 			user.setPhotos(fileName);
-
+			processStringRoles(user, roles);
 			userService.createNewUser(user, roles);
-			String uploadDir = "user-photos/" + savedUser.getId();
-
-			FileUploadUtil.cleanDir(uploadDir);
-			FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+			map.put("user", user);
+			map.put("roles", user.getRoles());
+//			userService.createRolesNewUser(user.getId(), roles);
+			userService.createRolesNewUser(map);
+			String uploadDir = "user-photos/" + user.getId(); 
+			
+			try {
+				FileUploadUtil.cleanDir(uploadDir);
+				FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		} else {
 			if (user.getPhotos().isEmpty()) {
 				user.setPhotos(null);
@@ -62,6 +75,22 @@ public class UserController {
 		return "Hey OK";
 	}
 	
+	@SuppressWarnings("null")
+	private void processStringRoles(User user, String roles) {
+		String[] arrRoles;
+		Set<Integer> targetSet = null;
+		if (!roles.isEmpty()) {
+			arrRoles = roles.split(",");
+			Integer[] arr = new Integer[arrRoles.length];
+			for (int i=0; i<arrRoles.length; i++) {
+				Integer temp = Integer.parseInt(arrRoles[i]);
+				arr[i] = temp;
+			}
+			targetSet = new HashSet<Integer>(Arrays.asList(arr));
+			user.setRoles(targetSet);
+		}
+	}
+
 	@PostMapping(path = "/data_role")
 	@ResponseBody
 	public String getDataRoles() {
