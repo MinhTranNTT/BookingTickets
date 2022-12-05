@@ -1,5 +1,7 @@
 $( document ).ready(function() {
-    
+	MAX_FILE_SIZE = 102400; //100KB
+
+
     $('#modalCreateUser .btn-ok').click(function(){
         console.log("Click OK");
         saveCreateUser();
@@ -13,6 +15,18 @@ $( document ).ready(function() {
     $('#btn-create-user').click(function(){
         initDataRolesInForm();
     });
+
+	$("#fileImage").change(function(){
+		fileSize = this.files[0].size;
+		if (fileSize > 1048576) {
+			this.setCustomValidity("You must choose an image less than 1MB!");
+			this.reportValidity();
+		} else {
+			this.setCustomValidity("");
+			showImageThumbnail(this);
+		}
+
+	});
     
     // validateForm();
     
@@ -71,9 +85,11 @@ function saveCreateUser() {
 	formData.append('firstName', $("#firstNameUser").val());
 	formData.append('lastName', $("#lastNameUser").val());
 	formData.append('password', $("#passwordUser").val());
+	formData.append('image', $("#fileImage")[0].files[0]);
 	//formData.append('strRoles', JSON.stringify());
 	strRoles = selected.toString();
-	
+	//fileImage
+
 	$.ajax({
 		url : window.location.href + 'users/create_user' + '?strRoles=' + strRoles,
 	        type : "POST",

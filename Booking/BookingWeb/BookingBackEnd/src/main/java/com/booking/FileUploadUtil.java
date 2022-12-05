@@ -1,4 +1,4 @@
-package com.booking.admin;
+package com.booking;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
