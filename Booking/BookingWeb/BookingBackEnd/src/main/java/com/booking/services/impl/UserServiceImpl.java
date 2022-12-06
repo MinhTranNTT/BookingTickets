@@ -1,5 +1,6 @@
 package com.booking.services.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +24,8 @@ public class UserServiceImpl implements UserService{
 	public int createRolesNewUser(Map<String, Object> map) {
 		return userDao.createRolesNewUser(map);
 	}
-
+	@Autowired
+	public List<User> getListAllUser() {
+		return userDao.getListAllUser();
+	}
 }

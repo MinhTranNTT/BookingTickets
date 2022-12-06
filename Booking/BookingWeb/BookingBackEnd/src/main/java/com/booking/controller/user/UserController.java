@@ -30,7 +30,6 @@ import com.google.gson.GsonBuilder;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-@RequestMapping(path="/users")
 public class UserController {
 	
 	@Autowired private RoleService roleService;
@@ -40,6 +39,14 @@ public class UserController {
 	public String listAll(Model model) {
 		System.out.println("Users");
 		return "account/users";
+	}
+
+	@GetMapping("/users-list")
+	public String getUserList() {
+
+		List<User> listUser = userService.getListAllUser();
+
+		return "users-list";
 	}
 	
 	@PostMapping(path = "/create_user")

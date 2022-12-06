@@ -1,5 +1,6 @@
 package com.booking.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -19,5 +20,9 @@ public class UserDao {
 	
 	public int createRolesNewUser(Map<String, Object> map) {
 		return sqlSession.insert("createRolesNewUser", map);
+	}
+
+	public List<User> getListAllUser() {
+		return sqlSession.selectList("getListAllUser");
 	}
 }

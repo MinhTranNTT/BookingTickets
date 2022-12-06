@@ -21,4 +21,11 @@
 			</foreach>
 	</insert>
 
+	<select id="getListAllUser" resultMap="userMap">
+		SELECT * FROM users;
+	</select>
+
+	<resultMap id="userMap" type="com.booking.common.entity.User">
+
+	</resultMap>
 </mapper>
